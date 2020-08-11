@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-
+import 'screens/news_list.dart';
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return MaterialApp(
+      title: 'TECH-news',
+      home:NewsList(),
+    );
+    //throw UnimplementedError();
   }
 
 }
