@@ -63,4 +63,4 @@ class NewsDbProvider implements Source,Cache{
   }
 }
 
-final newsDbProvider = newsDbProvider();
+final newsDbProvider = NewsDbProvider();
