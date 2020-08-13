@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:news/widgets/loading_container.dart';
 import '../model/item_model.dart';
 import '../bloc/stories_provider.dart';
-import 'loading_container.dart';
+
 
 class NewsListTile extends StatelessWidget {
   final int itemId;
+
 
   NewsListTile({this.itemId});
 
@@ -34,25 +36,25 @@ class NewsListTile extends StatelessWidget {
   }
 
   Widget buildTile(BuildContext context, ItemModel item) {
-    return Column(
-      children: [
-        ListTile(
-          onTap: () {
-            Navigator.pushNamed(context, '/${item.id}');
-          },
-          title: Text(item.title),
-          subtitle: Text('${item.score} points'),
-          trailing: Column(
-            children: [
-              Icon(Icons.comment),
-              Text('${item.descendants}'),
-            ],
-          ),
-        ),
-        Divider(
-          height: 8.0,
-        ),
-      ],
-    );
+        return Column(
+          children: [
+            ListTile(
+              onTap: (){
+                Navigator.pushNamed(context,'/${item.id}');
+              },
+              title: Text(item.title),
+              subtitle: Text('${item.score} votes'),
+              trailing: Column(
+
+                children: [
+                  Icon(Icons.comment),
+                  Text('${item.descendants}')
+
+                ],
+              ),
+            ),
+            Divider(height: 15,thickness: 8.0,color: Colors.blueGrey,indent: 7,endIndent: 7,)
+          ],
+        );
   }
 }
