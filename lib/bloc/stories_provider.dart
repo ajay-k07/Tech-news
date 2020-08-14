@@ -11,9 +11,10 @@ class StoriesProvider extends InheritedWidget{
   @override
   bool updateShouldNotify(InheritedWidget oldWidget) {
     return true;
-    throw UnimplementedError();
+
   }
   static StoriesBloc of(BuildContext context){
+    // ignore: deprecated_member_use
     return (context.inheritFromWidgetOfExactType(StoriesProvider) as StoriesProvider).bloc;
   }
 
