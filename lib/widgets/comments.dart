@@ -48,7 +48,7 @@ class Comment extends StatelessWidget {
       );
     }
     Widget buildText(ItemModel item){
-      final text = item.text.replaceAll('&gt;','').replaceAll('&#x27',"'" ).replaceAll('<p>','\n\n').replaceAll('</p>', '').replaceAll("';", "'").replaceAll('<a href="', '').replaceAll('</a>', '').replaceAll('</i>','').replaceAll('<i>','').replaceAll('#','');
+      final text = item.text.replaceAll('&quot;','').replaceAll('&gt;','').replaceAll('&#x27',"'" ).replaceAll('<p>','\n\n').replaceAll('</p>', '').replaceAll("';", "'").replaceAll('<a href="', '').replaceAll('</a>', '').replaceAll('</i>','').replaceAll('<i>','').replaceAll('#','');
       return Text(text);
     }
 }

@@ -3,6 +3,7 @@ import 'package:news/bloc/comments_provider.dart';
 import 'package:news/model/item_model.dart';
 import 'dart:async';
 import '../widgets/comments.dart';
+import '../widgets/loading_container.dart';
 
 class NewsDetail extends StatelessWidget {
   final int itemId;
@@ -25,14 +26,14 @@ Widget buildBody(CommentsBloc bloc){
       stream: bloc.itemWithComments,
       builder: (context,AsyncSnapshot<Map<int,Future<ItemModel>>>snapshot){
         if(!snapshot.hasData){
-          return Text('loading');
+          return LoadingContainer();
         }
         final itemFuture = snapshot.data[itemId];
         return FutureBuilder(
           future: itemFuture,
           builder: (context,AsyncSnapshot<ItemModel>itemSnapshot) {
               if(!itemSnapshot.hasData){
-                return Text('loading');
+                return LoadingContainer();
               }
               return buildList(itemSnapshot.data,snapshot.data);
           },
